@@ -20,26 +20,32 @@ class _MyAppState extends State<MyApp> {
     super.initState();
   }
 
-  dynamic data;
   @override
   Widget build(BuildContext context) {
-    log("$data");
-
     return MaterialApp(
       home: Scaffold(
         floatingActionButton: FloatingActionButton(
           child: const Icon(Icons.sync),
           onPressed: () async {
-            dynamic _data = await TestAPI().getData({"Beacon": "Beacon"});
+            // dynamic _data = await TestAPI.beaconAsStream;
 
-            setState(() => data = _data);
+            // setState(() => data = _data);
           },
         ),
         appBar: AppBar(
           title: const Text('Plugin example app'),
         ),
         body: Center(
-          child: Text('Data: $data\n'),
+          child: StreamBuilder(
+            stream: TestAPI.beaconAsStream,
+            builder: (context, snapshot) {
+              log("${snapshot.data}");
+              if (snapshot.hasData == false) {
+                return const CircularProgressIndicator();
+              }
+              return Text("${snapshot.data}");
+            },
+          ),
         ),
       ),
     );

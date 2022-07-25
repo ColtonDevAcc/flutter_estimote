@@ -1,18 +1,18 @@
-import 'dart:developer';
-
 import 'package:flutter/services.dart';
+import 'dart:async';
 
 class TestAPI {
-  static const platform = MethodChannel('flutter_estimote');
+  static const EventChannel channel = EventChannel('flutter_estimote');
 
-  dynamic getData(Map<String, String> tags) async {
-    try {
-      log("retrieving");
-      final data = await platform.invokeMethod<String>('setUpZones', tags);
-      log("retrieved the following data $data");
-      return data;
-    } on PlatformException catch (e) {
-      log("error:$e");
-    }
+  static Future<String> get beacons async {
+    final String beaconTag =
+        channel.receiveBroadcastStream().cast().first.toString(); //("setUpZones", "Beacon");
+
+    return beaconTag;
+  }
+
+  // New
+  static Stream<String> get beaconAsStream {
+    return channel.receiveBroadcastStream().cast();
   }
 }
