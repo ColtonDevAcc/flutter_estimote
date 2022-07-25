@@ -10,3 +10,9 @@ pod_install:
 	cd example/ios; \
 	pod install; \
 	echo "done";
+
+pub_clean:
+	echo "running pub clean"; \
+	cd example/; \
+	flutter clean; \
+	echo "done";

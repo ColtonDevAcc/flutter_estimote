@@ -6,5 +6,5 @@ class EstimoteBeacon {
 
 @HostApi()
 abstract class EstimoteAPI {
-  EstimoteBeacon fetch(String uuid);
+  void setUpZones(List<String> tags);
 }

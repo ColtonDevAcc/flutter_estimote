@@ -1,11 +1,20 @@
 PODS:
+  - EstimoteBluetoothScanning (1.0.8)
+  - EstimoteProximitySDK (1.7.1):
+    - EstimoteBluetoothScanning (~> 1.0.8)
   - Flutter (1.0.0)
   - flutter_estimote (0.0.1):
+    - EstimoteProximitySDK
     - Flutter
 
 DEPENDENCIES:
   - Flutter (from `Flutter`)
   - flutter_estimote (from `.symlinks/plugins/flutter_estimote/ios`)
+
+SPEC REPOS:
+  trunk:
+    - EstimoteBluetoothScanning
+    - EstimoteProximitySDK
 
 EXTERNAL SOURCES:
   Flutter:
@@ -14,9 +23,11 @@ EXTERNAL SOURCES:
     :path: ".symlinks/plugins/flutter_estimote/ios"
 
 SPEC CHECKSUMS:
+  EstimoteBluetoothScanning: aef117c8584951609403dc73cb07f6501911a365
+  EstimoteProximitySDK: 53a5260131599f6a5d86fe6c00430d8ad4df0bae
   Flutter: 50d75fe2f02b26cc09d224853bb45737f8b3214a
-  flutter_estimote: cbc5ce43ec19f7994bc4bb966aef00dd39f7aec3
+  flutter_estimote: f18b2de79633a7240d786d782a8248e4cd0bb70b
 
-PODFILE CHECKSUM: aafe91acc616949ddb318b77800a7f51bffa2a4c
+PODFILE CHECKSUM: 4e8f8b2be68aeea4c0d5beb6ff1e79fface1d048
 
 COCOAPODS: 1.11.3

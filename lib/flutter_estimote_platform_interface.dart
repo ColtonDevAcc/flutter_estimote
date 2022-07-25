@@ -14,16 +14,12 @@ abstract class FlutterEstimotePlatform extends PlatformInterface {
   ///
   /// Defaults to [MethodChannelFlutterEstimote].
   static FlutterEstimotePlatform get instance => _instance;
-  
+
   /// Platform-specific implementations should set this with their own
   /// platform-specific class that extends [FlutterEstimotePlatform] when
   /// they register themselves.
   static set instance(FlutterEstimotePlatform instance) {
     PlatformInterface.verifyToken(instance, _token);
     _instance = instance;
-  }
-
-  Future<String?> getPlatformVersion() {
-    throw UnimplementedError('platformVersion() has not been implemented.');
   }
 }

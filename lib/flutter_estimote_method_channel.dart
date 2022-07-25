@@ -10,8 +10,8 @@ class MethodChannelFlutterEstimote extends FlutterEstimotePlatform {
   final methodChannel = const MethodChannel('flutter_estimote');
 
   @override
-  Future<String?> getPlatformVersion() async {
-    final version = await methodChannel.invokeMethod<String>('getPlatformVersion');
+  Future<Stream?> getPlatformVersion() async {
+    final Stream version = await methodChannel.invokeMethod('getPlatformVersion');
     return version;
   }
 }
